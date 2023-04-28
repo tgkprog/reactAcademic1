@@ -76,7 +76,13 @@ class Car {
   }
 }
 
-let chevy = new Car("Chevy blue", 2023, 89000, 20, 100);
+let esteem = new Car("esteem blue", 2023, 89000, 20, 100);
+console.log(esteem);
+console.log("drv 10", esteem.drive(10), esteem);
+console.log("drv 50", esteem.drive(50), esteem);
+
+let chevy = new Car("Chevy blue", 2023, 89000, 10, 10);
 console.log(chevy);
 console.log("drv 10", chevy.drive(10), chevy);
 console.log("drv 50", chevy.drive(50), chevy);
+console.log("drv 60", chevy.drive(60), chevy);
