@@ -5,11 +5,37 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> 2 Vite + React + TS</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>;
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- React script tab -->
+    <!-- <script type="module" src="/src/main.tsx"></script> -->
+
+    <!-- Js script tag -->
+    <script type="module" src="/src/p2/j.js"></script> Works. Tough odd output in Chrome browser,  way of printing comma seperated console.log with vite init.
+
+    <code><pre>
+  console.log(
+  "Here\nNo object in comma sep list ",
+  ` betty vehc trvl ${dist1} `,
+  vBetty.distPossible(dist1, false)
+);
+
+console.log(
+  vBetty,
+  "With object ",
+  ` betty vehc trvl ${dist1} `,
+  vBetty.distPossible(dist1, false)
+);
+</pre>
+    </code>
+    Images stored under /src/p2/res folder: 'Chrome vite console log obj with str comma sep, 30 April 2023.png'  'Firefox vite console log obj with str comma sep, 30 April 2023.png'
+    <br><br>In Chrome:<br>
+    <img src='./src/p2/res/Chrome vite console log obj with str comma sep, 30 April 2023.png' />
+    <br><br>In Firefox:<br>
+    <img src='./src/p2/res/Firefox vite console log obj with str comma sep, 30 April 2023.png' /><br>
+    Both latest stable in Ubuntu 22.04
   </body>
 </html>
