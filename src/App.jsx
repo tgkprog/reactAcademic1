@@ -1,17 +1,22 @@
-import { CC } from "./data.js"
+import { CORE_CONCEPTS, EXAMPLES } from "./data.js"
 
 import Header from "./components/Header";
 import CoreConcept from "./components/CoreConcept";
 import TabButton from "./components/TabButton.jsx";
 import { useState } from "react";
 
+let cnt = 1
 function App() {
-  const [exampleContent, setExampleContent] = useState("Select one");
+  const [selectedExampleTopic, setSelectedExampleTopic] = useState();
   function handleClick(selBtn) {
-    console.log('clk b ' + selBtn);
-    setExampleContent(selBtn);
-  }
+    console.log('param selBtn ', selBtn, 'selectedExampleTopic ', selectedExampleTopic, cnt);
+    setSelectedExampleTopic(selBtn);
 
+    //selectedExampleTopic still old value. Will change in next cycle
+    console.log('After param selBtn ', selBtn, 'selectedExampleTopic ', selectedExampleTopic, cnt);
+  }
+  console.log('App ' + cnt);
+  cnt++;
   return (
     <div>
       <Header />
@@ -20,25 +25,37 @@ function App() {
       </main>
       <section id="core-concepts" >
         <ul>
-          <CoreConcept {...CC[0]} />
+          <CoreConcept {...CORE_CONCEPTS[0]} />
 
-          <CoreConcept title={CC[1].title} image={CC[1].image}
-            description={CC[1].description} />
+          <CoreConcept title={CORE_CONCEPTS[1].title} image={CORE_CONCEPTS[1].image}
+            description={CORE_CONCEPTS[1].description} selBtn={selectedExampleTopic} />
 
-          <CoreConcept {...CC[2]} />
+          <CoreConcept {...CORE_CONCEPTS[2]} />
 
-          <CoreConcept {...CC[3]} />
+          <CoreConcept {...CORE_CONCEPTS[3]} />
 
         </ul>
       </section>
       <section id="examples" >
         <menu>
-          <TabButton onClick={() => handleClick('c')}>Component</TabButton>
-          <TabButton onClick={() => handleClick('j')}>JSX</TabButton>
-          <TabButton onClick={() => handleClick('p')}>Props</TabButton>
-          <TabButton onClick={() => handleClick('s')}>State</TabButton>
+          <TabButton onClick={() => handleClick('components')}>Component</TabButton>
+          <TabButton onClick={() => handleClick('jsx')}>JSX</TabButton>
+          <TabButton onClick={() => handleClick('props')}>Props</TabButton>
+          <TabButton onClick={() => handleClick('state')}>State</TabButton>
         </menu>
-        {exampleContent}
+
+        {selectedExampleTopic ? (
+          <div id="tab-content">
+            <h3>{EXAMPLES[selectedExampleTopic].title}</h3>
+            <p>{EXAMPLES[selectedExampleTopic].description}</p>
+            <pre>
+              <code>
+                {EXAMPLES[selectedExampleTopic].code}
+              </code>
+            </pre>
+          </div>) : (<div id="tab-content"> Select an item</div>)}
+
+
       </section>
     </div>
   );
