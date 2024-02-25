@@ -1,7 +1,7 @@
 import reactImg from "../assets/react-core-concepts.png";
 import './Header.css'
 
-const reactDescriptions = ['Fundamental', 'Crucial', 'Core', 'Important', 'Salient', "Paramount", "Main"];
+const reactDescriptions = ['Fundamental', 'Crucial', 'Core', 'Important', 'Salient', "Main"];//, "Paramount"
 
 
 function genRandomInt(max) {
